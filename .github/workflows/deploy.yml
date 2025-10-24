@@ -1,22 +1,22 @@
-name: deploy static website to s3
+name: Deploy static website to S3
 
 on:
-  push: 
+  push:
     branches: [ main ]
 
-jobs: 
-  deploy: 
-    name: upload website to s3
-    runs-on: ubuntu latest
+jobs:
+  deploy:
+    name: Upload website to S3
+    runs-on: ubuntu-latest
 
-    steps: 
-      - name: checkout code
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: configure aws credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
-		with:
-	      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
@@ -25,4 +25,3 @@ jobs:
 
       - name: ✅ Deployment Success Message
         run: echo "🎉 Website successfully deployed to S3!"
-
