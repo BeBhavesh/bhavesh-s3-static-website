@@ -21,7 +21,7 @@ jobs:
           aws-region: us-east-1
 
       - name: 📦 Deploy files to S3
-        run: aws s3 sync . s3://my-static-website-bhavesh --exclude ".git/*" --exclude ".github/*" --delete
+        run: aws s3 sync . s3://bhavesh-s3-static-website  --exclude ".git/*" --exclude ".github/*" --delete
 
       - name: ✅ Deployment Success Message
         run: echo "🎉 Website successfully deployed to S3!"
